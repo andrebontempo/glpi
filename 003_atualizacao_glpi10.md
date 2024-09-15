@@ -34,13 +34,18 @@ unzip 10.0.11.zip
 ```bash
 mv glpi-10.0.11 glpi
 ```
-### 6. Copiar conteúdo necessário da pasta antiga
-No nosso caso copiaremos a pasta plugins, pics, marketplace e inc
+### 6. Copiar somente o arquivo downstream para /inc
+```bash
+cp /var/www/glpi.OLD/inc/downstream.php /var/www/glpi/inc/downstream.php 
+```
+### 7. Copiar conteúdo necessário da pasta antiga
 Para realizar isso utilizaremos o utilitário ‘mc’
 ```bash
 apt install mc
 ```
 digite no terminal : mc + Enter
+
+No nosso caso copiaremos a pasta plugins, pics, marketplace
 
 //Seguir a realização das cópias conforme mostrado em vídeo//
 Por fim, realizar novamente comando para privilégios do usuário apache :
@@ -52,10 +57,11 @@ Após isso, reiniciar o apache :
 systemctl restart apache2
 ```
 E seguir a atualização pelo link raiz do glpi(no navegador)
-
+**glpi.set2024.com**
 Pós atualização : remover pasta ‘install’ da pasta raiz
+
 ```bash
-Rm -rf Install/
+Rm -rf /var/www/glpi/Install/
 ```
 
 ### ***Fim***
