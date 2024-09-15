@@ -1,7 +1,7 @@
 ## 1 Preparar VM linux com pacote web e banco de dados
 #manipular arquivos:
 
-apt install -y xz-utils bzip2 unzip curl
+   apt install -y xz-utils bzip2 unzip curl
 
 var dkdk;
 dfdf
