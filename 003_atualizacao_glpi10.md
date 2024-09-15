@@ -57,7 +57,9 @@ Após isso, reiniciar o apache :
 systemctl restart apache2
 ```
 E seguir a atualização pelo link raiz do glpi(no navegador)
+
 **glpi.set2024.com**
+
 Pós atualização : remover pasta ‘install’ da pasta raiz
 
 ```bash
