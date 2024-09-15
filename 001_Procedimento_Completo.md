@@ -35,18 +35,10 @@ grant all privileges on glpi10.* to connectdb@localhost;
 ```bash
 quit;
 ```
-
-mysql>
-mysql> 
-mysql> 
-mysql>
-mysql> 
-
 ### Setar ipfixo e ativar acesso via ssh
 ```bash
 apt install openssh-server
 ```
-
 ### Habilitar login root no ssh : 
 ```bash
 nano /etc/ssh/sshd_config
@@ -57,9 +49,7 @@ Salvar e fechar : Ctrl + O, Enter, Ctrl + X
 ```bash
 systemctl restart ssh
 ```
-
 ### Setar ip fixo na máquina : nano /etc/network/interfaces
-
 Ps : ajuste para a faixa de ip, máscara etc da sua rede
 ```bash
 iface "interface" inet static
@@ -69,14 +59,11 @@ network 192.168.1.0
 broadcast 192.168.1.255
 gateway 192.168.1.1
 ```
-
 Salvar e fechar : Ctrl + O, Enter, Ctrl + X
-
 ### Reiniciar a vm : 
 ```bash
 systemctl reboot
 ```
-
 Por fim, validar se o acesso ssh continua OK
 
 
