@@ -252,6 +252,23 @@ Instalar phpgettext(resolve o erro ao compilar as traduções/locales)
 ```bash
 apt install gettext
 ```
+### Acessar a URL gpli.set2024.com
+ Rodar o comando 
+ ```bash
+/var/www/glpi/php <comando que aparece no navegador>
+Atualiza a página
+/var/www/glpi/php <comando que aparece no navegador>
+```
+### Agora vai entrar no modo assistente de instalação do GLPI.
+Para resolver o erro da pasta marketingplace rode o comando
+ ```bash
+chown www-data:www-data /var/www/glpi/marketplace -Rf
+```
+### Inserir as credenciais do banco e concluir a instalação
+
+Criar o usuário user.user como super admin e trocar a senha dos usuários padrão.
+
+Excluir a pasta /install
 
 ## 4 Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
 
