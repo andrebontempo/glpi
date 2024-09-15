@@ -185,26 +185,44 @@ glpi.labudemy2024.com
 Os : Caso fosse realizado uma configuração do GLPi para acesso externo, seguiria a mesma
 lógica. A diferença é que ao invés do ip interno seria o externo e ao invés de fazermos isso no
 host da máquina, nós faríamos no gerenciador de dns(cloudlare, registro br etc)
-Para utilizar os comandos do console do glpi precisamos garantir o bom funcionamento dos utilitários : composer e npm
 
-Instalar composer:
+## Para utilizar os comandos do console do glpi precisamos garantir o bom funcionamento dos utilitários : composer e npm
+
+### Instalar composer:
+```bash
 sudo apt update
+```
+```bash
 sudo apt install curl php-cli php-mbstring git unzip
+```
+```bash
 cd ~
+```
+```bash
 curl -sS https://getcomposer.org/installer -o composer-setup.php
+```
+```bash
 HASH=`curl -sS https://composer.github.io/installer.sig`
+```
+```bash
 echo $HASH
-*****
+```
+```bash
 php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; }
 else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+```
+```bash
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
-Por fim : composer
+```
+Por fim :
+```bash
+ composer
+```
 
 Referencia : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-
 composer-on-debian-11
 
-Instalar NPM
+## Instalar NPM
 cd ~
 curl -sL https://deb.nodesource.com/setup_16.x | bash -
 apt install nodejs
@@ -214,7 +232,8 @@ npm -v
 
 Instalar phpgettext(resolve o erro ao compilar as traduções/locales)
 apt install gettext
-Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
+
+## Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
 Comandos necessários :
 
 ➢ Passo 1 : setar fuso horário do servidor
@@ -277,20 +296,7 @@ Pós atualização : remover pasta ‘install’ da pasta raiz
 Rm -rf Install/
 -- fim –
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Script Backup Banco de Dados By Aristides Neto
+## Script Backup Banco de Dados By Aristides Neto
 
 Passo 1 : definir um local e criar 2 pastas(1 para o backup do banco e o a outra para os arquivos
 de logs)
