@@ -120,6 +120,7 @@ Informação :
 É isso
 Referência : https://glpi-install.readthedocs.io/pt/latest/install/index.html
 
+
 ## 2 Criar VIrtualhost para acesso seguro ao GLPI
 Desde a versão 10.0.7 do GLPI foi incluso uma subpasta nova ‘public’ onde na configuração do
 seu virtualhost deves realizar um redirecionamento para um arquivo index.php que há dentro dela. Seguindo a documentação, segue arquivo :
@@ -186,7 +187,8 @@ Os : Caso fosse realizado uma configuração do GLPi para acesso externo, seguir
 lógica. A diferença é que ao invés do ip interno seria o externo e ao invés de fazermos isso no
 host da máquina, nós faríamos no gerenciador de dns(cloudlare, registro br etc)
 
-## Para utilizar os comandos do console do glpi precisamos garantir o bom funcionamento dos utilitários : composer e npm
+
+## 3 Para utilizar os comandos do console do glpi precisamos garantir o bom funcionamento dos utilitários : composer e npm
 
 ### Instalar composer:
 ```bash
@@ -222,7 +224,7 @@ Por fim :
 Referencia : https://www.digitalocean.com/community/tutorials/how-to-install-and-use-
 composer-on-debian-11
 
-## Instalar NPM
+### Instalar NPM
 cd ~
 curl -sL https://deb.nodesource.com/setup_16.x | bash -
 apt install nodejs
@@ -233,7 +235,7 @@ npm -v
 Instalar phpgettext(resolve o erro ao compilar as traduções/locales)
 apt install gettext
 
-## Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
+## 4 Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
 Comandos necessários :
 
 ➢ Passo 1 : setar fuso horário do servidor
@@ -262,7 +264,9 @@ Na opção ‘Fuso horário’ setar o mesmo fuso horário escolhido no servidor
 
 Pronto, agora terás a informação do horário Ok no glpi, banco e servidor
 
-Atualização do GLPI
+
+## 5 Atualização do GLPI
+
 1. Local para salvar os backups ? > sugestão : pasta raiz do usuário root ou o usuário
 utilizado na instalação
 cd /root
@@ -275,20 +279,24 @@ diretório atual
 systemctl stop apache2
 
 4. Renomear pasta do glpi atual para _old
-Cd /var/www/
+cd /var/www/
 mv glpi glpi_old
+
 5. Baixar, descompactar e renomear pasta nova do GLPI
 wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.11.zip
 unzip 10.0.11.zip
 mv glpi-10.0.11 glpi
+
 6. Copiar conteúdo necessário da pasta antiga
 No nosso caso copiaremos a pasta plugins, pics, marketplace e inc
 Para realizar isso utilizaremos o utilitário ‘mc’
 apt install mc
 digite no terminal : mc + Enter
+
 //Seguir a realização das cópias conforme mostrado em vídeo//
 Por fim, realizar novamente comando para privilégios do usuário apache :
 chown www-data:www-data /var/www/glpi -Rf
+
 Após isso, reiniciar o apache : systemctl restart apache2
 E seguir a atualização pelo link raiz do glpi(no navegador)
 
@@ -296,7 +304,7 @@ Pós atualização : remover pasta ‘install’ da pasta raiz
 Rm -rf Install/
 -- fim –
 
-## Script Backup Banco de Dados By Aristides Neto
+## 6 Script Backup Banco de Dados By Aristides Neto
 
 Passo 1 : definir um local e criar 2 pastas(1 para o backup do banco e o a outra para os arquivos
 de logs)
@@ -338,7 +346,7 @@ systemctl restart cron
 nesse exemplo o backup será realizado todos os dias às 22h30
 Ajuste ou acrescente novos horários de acordo com sua necessidade
 
---fim --
+## ***Fim***
 
 
 
