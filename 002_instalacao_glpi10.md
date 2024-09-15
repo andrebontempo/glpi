@@ -115,8 +115,11 @@ possível realizar a migração dos dados para que fiquem fora da pasta do glpi
 ### Informação:
 
 **/var/www/glpi** : diretório da pasta raiz do glpi
+
 **/etc/glpi** : diretório para os arquivos do banco
+
 **/var/lib/glpi** : diretório que substitui a pasta 'files' interna do GLPI
+
 **/var/log/glpi** : diretório para os logs do glpi
 
 É isso
