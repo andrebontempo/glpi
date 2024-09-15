@@ -4,7 +4,7 @@
 
 ```bash
 cd /var/www
-´´´
+```
 ### 1.1 Baixar glpi : 
 ```bash
 wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.10.zip
