@@ -1,4 +1,4 @@
-## Instalação GLPI 10 by Lucas Levi – 2024
+## 1 Instalação GLPI 10 by Lucas Levi – 2024
 
 ### Passo 1 : Acessar:
 
@@ -37,48 +37,79 @@ require_once GLPI_CONFIG_DIR . '/local_define.php';
 }
 ```
 ### 2.2 Criar os diretórios a seguir :
+```bash
 mkdir /etc/glpi
+```
+```bash
 mkdir /var/lib/glpi
+```
+```bash
 mkdir /var/log/glpi
-
+```
 ### 2.3 Criar sub diretórios da pasta files
+```bash
 cd /var/www/glpi/files
+```
+```bash
 cp * -Rf /var/lib/glpi
-
+```
 ### 2.4 Dar permissões do usuário apache nessas pastas
+```bash
 chown www-data:www-data /etc/glpi -Rf
+```
+```bash
 chown www-data:www-data /var/lib/glpi -Rf
+```
+```bash
 chown www-data:www-data /var/log/glpi -Rf
+```
+```bash
 chown www-data:www-data /etc/www/glpi -Rf
-
+```
 ### 2.5 Em 
+```bash
 cd /etc/glpi 
+```
 criar o arquivo 
+```bash
 nano local_define.php
+```
  com o seguinte conteúdo :
+```bash
 <?php
 define('GLPI_VAR_DIR', '/var/lib/glpi');
 define('GLPI_LOG_DIR', '/var/log/glpi');
-
+```
 ### 2.6 Habilitar diretiva ‘session.cookie_httponly’ no PHP
 Caminho 1 : 
+```bash
 nano /etc/php/8.2/cli/php.ini
+```
 Ctrl + W, session.cookie_httponly, session.cookie_httponly = ON
 Ctrl + O, Ctrl + X
 Caminho 2 : 
+```bash
 nano /etc/php/8.2/apache2/php.ini
+```
 Ctrl + W, session.cookie_httponly, session.cookie_httponly = ON
 Ctrl + O, Ctrl + X
+```bash
 systemctl restart apache2
-2.7 Ativar cron do GLPI
+```
+### 2.7 Ativar cron do GLPI
+```bash
 nano /etc/crontab
-adicionar a linha : * * * * * root php -f /var/www/glpi/front/cron.php
+```
+adicionar a linha :
+```bash
+* * * * * root php -f /var/www/glpi/front/cron.php
+```
 Ctrl + O, Ctrl + X
+```bash
 systemctl restart cron
-
+```
 Por fim, basta seguir a instalação do glpi. Ps : se for um glpi já existente, também é
 possível realizar a migração dos dados para que fiquem fora da pasta do glpi
-
 __
 Informação :
 /var/www/glpi : diretório da pasta raiz do glpi
@@ -88,14 +119,21 @@ Informação :
 
 É isso
 Referência : https://glpi-install.readthedocs.io/pt/latest/install/index.html
-Criar VIrtualhost para acesso seguro ao GLPI
+
+## 2 Criar VIrtualhost para acesso seguro ao GLPI
 Desde a versão 10.0.7 do GLPI foi incluso uma subpasta nova ‘public’ onde na configuração do
 seu virtualhost deves realizar um redirecionamento para um arquivo index.php que há dentro dela. Seguindo a documentação, segue arquivo :
+
 1. acessar a guia dos vhosts do apache
+```bash
 cd /etc/apache2/sites-available/
+```
 2. Criar vhost
+```bash
 nano glpi.conf
+```
 3. setar este conteúdo :
+```bash
 <VirtualHost *:80>
 ServerName glpi.labudemy2024.com
 
@@ -122,13 +160,18 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php [QSA,L]
 </Directory>
 </VirtualHost>
-
+```
 4. Habilitar módulo rewrite
+```bash
 a2enmod rewrite
+```
 5. Ativar novo vhost e reiniciar o apache2
+```bash
 a2ensite glpi.conf
+```
+```bash
 systemctl restart apache2
-
+```
 6. Para acessar o GLPI a partir do dns definido ‘glpi.labudemy2024.com’, podemos setar essa
 informação no arquivos hosts do Windows
 Basta acessar esse caminho no seu computador : C:\Windows\System32\drivers\etc
@@ -138,10 +181,12 @@ Dentro do arquivo sete o dns dessa forma >> “ip” “dns’
 Salve o arquivo, copie novamente para o caminho original e substitua-o
 Por fim, já conseguiremos acessar o glpi no navegador utilizando o dns
 glpi.labudemy2024.com
+
 Os : Caso fosse realizado uma configuração do GLPi para acesso externo, seguiria a mesma
 lógica. A diferença é que ao invés do ip interno seria o externo e ao invés de fazermos isso no
 host da máquina, nós faríamos no gerenciador de dns(cloudlare, registro br etc)
 Para utilizar os comandos do console do glpi precisamos garantir o bom funcionamento dos utilitários : composer e npm
+
 Instalar composer:
 sudo apt update
 sudo apt install curl php-cli php-mbstring git unzip
