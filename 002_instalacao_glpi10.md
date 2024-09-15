@@ -283,24 +283,37 @@ Pronto, agora terás a informação do horário Ok no glpi, banco e servidor
 
 1. Local para salvar os backups ? > sugestão : pasta raiz do usuário root ou o usuário
 utilizado na instalação
+```bash
 cd /root
-
+```
 2. Realizar backup do banco de dados(exportação)
-mysqldump -u usuario -p nome_do_banco > nome_do_arquivo.sql - será salvo no
-diretório atual
+```bash
+mysqldump -u usuario -p nome_do_banco > nome_do_arquivo.sql
+```
+Será salvo no diretório atual
 
 3. Parar serviço do apache(para evitar erros)
+```bash
 systemctl stop apache2
-
+```
 4. Renomear pasta do glpi atual para _old
+```bash
 cd /var/www/
+```
+```bash
 mv glpi glpi_old
 
+```
 5. Baixar, descompactar e renomear pasta nova do GLPI
+```bash
 wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.11.zip
+```
+```bash
 unzip 10.0.11.zip
+```
+```bash
 mv glpi-10.0.11 glpi
-
+```
 6. Copiar conteúdo necessário da pasta antiga
 No nosso caso copiaremos a pasta plugins, pics, marketplace e inc
 Para realizar isso utilizaremos o utilitário ‘mc’
