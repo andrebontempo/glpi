@@ -1,5 +1,11 @@
 ## 1 Preparar VM linux com pacote web e banco de dados
 
+### Instalar a VM Debian 12 e atualizar com o comando abaixo:
+```bash
+   apt -y update && apt upgrade && apt autoremove && apt autoclean
+```
+
+
 ### Pacotes para manipular arquivos:
 ```bash
    apt install -y xz-utils bzip2 unzip curl
