@@ -1,6 +1,7 @@
 ## Instalação GLPI 10 by Lucas Levi – 2024
 
-### Passo 1 : Acessar 
+### Passo 1 : Acessar
+
 ```bash
 cd /var/www
 ´´´
@@ -9,6 +10,7 @@ cd /var/www
 wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.10.zip
 ```
 Referência : https://github.com/glpi-project/glpi/releases/
+
 
 1.2 Descompactar pasta : 
 unzip 10.0.10.zip
