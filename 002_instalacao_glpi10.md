@@ -1,6 +1,6 @@
 ## Instalação GLPI 10 by Lucas Levi – 2024
 
-### Passo 1 : Acessar
+### Passo 1 : Acessar:
 
 ```bash
 cd /var/www
@@ -11,40 +11,47 @@ wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.10.zip
 ```
 Referência : https://github.com/glpi-project/glpi/releases/
 
-
-1.2 Descompactar pasta : 
+### 1.2 Descompactar pasta:
+```bash
 unzip 10.0.10.zip
-1.3Renomear pasta : 
+```
+### 1.3 Renomear pasta:
+```bash
 mv glpi-10.0.10 glpi
-
-• Passo 2
-2.1 Após descompactar a pasta, acessar 
-cd /inc 
+```
+### Passo 2
+### 2.1 Após descompactar a pasta, acessar 
+```bash
+cd /inc
+```  
 e criar o arquivo 
+```bash
 nano downstream.php 
+```
 e setar esse conteúdo :
+```bash
 <?php
 define('GLPI_CONFIG_DIR', '/etc/glpi/');
 if (file_exists(GLPI_CONFIG_DIR . '/local_define.php')) {
 require_once GLPI_CONFIG_DIR . '/local_define.php';
 }
-
-2.2 Criar os diretórios a seguir :
+```
+### 2.2 Criar os diretórios a seguir :
 mkdir /etc/glpi
 mkdir /var/lib/glpi
 mkdir /var/log/glpi
 
-2.3 Criar sub diretórios da pasta files
+### 2.3 Criar sub diretórios da pasta files
 cd /var/www/glpi/files
 cp * -Rf /var/lib/glpi
 
-2.4 Dar permissões do usuário apache nessas pastas
+### 2.4 Dar permissões do usuário apache nessas pastas
 chown www-data:www-data /etc/glpi -Rf
 chown www-data:www-data /var/lib/glpi -Rf
 chown www-data:www-data /var/log/glpi -Rf
 chown www-data:www-data /etc/www/glpi -Rf
 
-2.5 Em 
+### 2.5 Em 
 cd /etc/glpi 
 criar o arquivo 
 nano local_define.php
@@ -53,7 +60,7 @@ nano local_define.php
 define('GLPI_VAR_DIR', '/var/lib/glpi');
 define('GLPI_LOG_DIR', '/var/log/glpi');
 
-2.6 Habilitar diretiva ‘session.cookie_httponly’ no PHP
+### 2.6 Habilitar diretiva ‘session.cookie_httponly’ no PHP
 Caminho 1 : 
 nano /etc/php/8.2/cli/php.ini
 Ctrl + W, session.cookie_httponly, session.cookie_httponly = ON
