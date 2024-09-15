@@ -2,7 +2,7 @@
 
 ### Instalar a VM Debian 12 e atualizar com o comando abaixo:
 ```bash
-   apt -y update && apt upgrade && apt autoremove && apt autoclean
+   apt -y update && apt -y upgrade && apt -y autoremove && apt -y autoclean
 ```
 
 
