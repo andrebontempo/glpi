@@ -1,14 +1,13 @@
 ## 1 Preparar VM linux com pacote web e banco de dados
-#manipular arquivos:
 
+### Pacotes para manipular arquivos:
+```bash
    apt install -y xz-utils bzip2 unzip curl
-
-var dkdk;
-dfdf
-
-apt install -y xz-utils bzip2 unzip curl
-#Instalar dependências no sistema
+```
+## Instalar dependências no sistema
+```bash
 apt install -y apache2 libapache2-mod-php php-soap php-cas php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,bz2}
+```
 #Instalar o Serviço MySQL
 apt install -y mariadb-server
 #Criar Banco de Dados no Mysql
