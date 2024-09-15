@@ -257,28 +257,57 @@ apt install gettext
 
 Comandos necessários :
 
-➢ Passo 1 : setar fuso horário do servidor
+### Passo 1 : setar fuso horário do servidor
 Ver lista de timezones disponíveis : 
+```bash
 timedatectl list-timezones
-timedatectl set-timezone America/Fortaleza
+```
+```bash
+timedatectl set-timezone America/Sao_Paulo
+```
+
 Validar mudança : 
+
+```bash
 timedatectl
+```
 
-Passo 2: compartilhar fuso horários com o mysql
+
+
+
+
+### Passo 2: compartilhar fuso horários com o mysql
+```bash
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -p -u root mysql
+```
 “senha de root”
+```bash
 mysql -p
+```
 “senha de root”
-SET GLOBAL time_zone = 'America/Fortaleza';
+```bash
+SET GLOBAL time_zone = 'America/Sao_Paulo';
+```
+```bash
 GRANT SELECT ON `mysql`.`time_zone_name` TO 'connectdb'@'localhost';
+```
+```bash
 Quit;
+```
+```bash
 systemctl restart mariadb.service
-
-Passo 3 : Ativar o uso do fuso horário no GLPI
+```
+### Passo 3 : Ativar o uso do fuso horário no GLPI
 Acessar /var/www/glpi
+```bash
+cd /var/www/glpi
+```
 Rodar o comando : 
+```bash
 php bin/console database:enable_timezones
+```
+
 Depois acessar no GLPI : Configurar > Geral > Valores Padrão
 Na opção ‘Fuso horário’ setar o mesmo fuso horário escolhido no servidor
 
-Pronto, agora terás a informação do horário Ok no glpi, banco e servidor
+**Pronto, agora terás a informação do horário Ok no glpi, banco e servidor**
