@@ -16,12 +16,12 @@ Será salvo no diretório atual
 ```bash
 systemctl stop apache2
 ```
-### 4. Renomear pasta do glpi atual para _old
+### 4. Renomear pasta do glpi atual para .OLD
 ```bash
 cd /var/www/
 ```
 ```bash
-mv glpi glpi_old
+mv glpi glpi.OLD
 ```
 
 ### 5. Baixar, descompactar e renomear pasta nova do GLPI
