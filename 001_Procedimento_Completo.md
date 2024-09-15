@@ -4,8 +4,6 @@
 ```bash
 apt update && apt upgrade -y && apt full-upgrade -y && apt autoremove -y && apt clean
 ```
-
-
 ### Pacotes para manipular arquivos:
 ```bash
    apt install -y xz-utils bzip2 unzip curl
@@ -14,15 +12,35 @@ apt update && apt upgrade -y && apt full-upgrade -y && apt autoremove -y && apt 
 ```bash
 apt install -y apache2 libapache2-mod-php php-soap php-cas php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,bz2}
 ```
-#Instalar o Serviço MySQL
+### Instalar o Serviço MySQL
+```bash
 apt install -y mariadb-server
-#Criar Banco de Dados no Mysql
+```
+### Criar Banco de Dados no Mysql
+```bash
 mysql -u root -p
-mysql> create database glpi10 character set utf8mb4 collate utf8mb4_bin;
-mysql> create user connectdb@localhost identified by 'glpilab@udemy2024';
-mysql> grant all privileges on glpi10.* to connectdb@localhost;
-mysql> flush privileges;
-mysql> quit;
+```
+```bash
+ create database glpi10 character set utf8mb4 collate utf8mb4_bin;
+```
+```bash
+create user connectdb@localhost identified by 'glpilab@udemy2024';
+```
+```bash
+grant all privileges on glpi10.* to connectdb@localhost;
+```
+```bash
+ flush privileges;
+```
+```bash
+quit;
+```
+
+mysql>
+mysql> 
+mysql> 
+mysql>
+mysql> 
 
 #Setar ipfixo e ativar acesso via ssh
 apt install openssh-server
