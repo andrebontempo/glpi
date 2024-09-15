@@ -22,8 +22,8 @@ cd /var/www/
 ```
 ```bash
 mv glpi glpi_old
-
 ```
+
 ### 5. Baixar, descompactar e renomear pasta nova do GLPI
 ```bash
 wget https://github.com/glpi-project/glpi/archive/refs/tags/10.0.11.zip
@@ -37,7 +37,9 @@ mv glpi-10.0.11 glpi
 ### 6. Copiar conteúdo necessário da pasta antiga
 No nosso caso copiaremos a pasta plugins, pics, marketplace e inc
 Para realizar isso utilizaremos o utilitário ‘mc’
+```bash
 apt install mc
+```
 digite no terminal : mc + Enter
 
 //Seguir a realização das cópias conforme mostrado em vídeo//
@@ -48,5 +50,8 @@ Após isso, reiniciar o apache : systemctl restart apache2
 E seguir a atualização pelo link raiz do glpi(no navegador)
 
 Pós atualização : remover pasta ‘install’ da pasta raiz
+```bash
 Rm -rf Install/
+```
+
 ### ***Fim***
