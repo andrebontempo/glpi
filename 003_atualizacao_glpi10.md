@@ -45,7 +45,9 @@ apt install mc
 ```
 digite no terminal : mc + Enter
 
-No nosso caso copiaremos a pasta plugins, pics, marketplace
+No nosso caso copiaremos as pasta:
+
+**plugins, pics, marketplace**
 
 //Seguir a realização das cópias conforme mostrado em vídeo//
 Por fim, realizar novamente comando para privilégios do usuário apache :
