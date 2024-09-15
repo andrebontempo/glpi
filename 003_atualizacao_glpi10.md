@@ -44,9 +44,13 @@ digite no terminal : mc + Enter
 
 //Seguir a realização das cópias conforme mostrado em vídeo//
 Por fim, realizar novamente comando para privilégios do usuário apache :
+```bash
 chown www-data:www-data /var/www/glpi -Rf
-
-Após isso, reiniciar o apache : systemctl restart apache2
+```
+Após isso, reiniciar o apache : 
+```bash
+systemctl restart apache2
+```
 E seguir a atualização pelo link raiz do glpi(no navegador)
 
 Pós atualização : remover pasta ‘install’ da pasta raiz
