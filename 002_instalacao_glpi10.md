@@ -225,17 +225,31 @@ Referencia : https://www.digitalocean.com/community/tutorials/how-to-install-and
 composer-on-debian-11
 
 ### Instalar NPM
+```bash
 cd ~
-curl -sL https://deb.nodesource.com/setup_16.x | bash -
+```
+```bash
+curl -sL https://deb.nodesource.com/setup_18.x | bash -
+```
+```bash
 apt install nodejs
+```
+```bash
 node -v
+```
+```bash
 apt install npm
+```
+```bash
 npm -v
-
+```
 Instalar phpgettext(resolve o erro ao compilar as traduções/locales)
+```bash
 apt install gettext
+```
 
 ## 4 Ajuste necessário para garantir a integridade dos horários no chamados tanto no GLPI quanto no banco de dados
+
 Comandos necessários :
 
 ➢ Passo 1 : setar fuso horário do servidor
