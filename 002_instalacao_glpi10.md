@@ -146,9 +146,9 @@ ServerName glpi.labudemy2024.com
 DocumentRoot /var/www/glpi/public
 
 # If you want to place GLPI in a subfolder of your site (e.g. your virtual host is serving
-multiple applications),
+#multiple applications),
 # you can use an Alias directive. If you do this, the DocumentRoot directive MUST NOT target
-the GLPI directory itself.
+#the GLPI directory itself.
 # Alias "/glpi" "/var/www/glpi/public"
 
 <Directory /var/www/glpi/public>
