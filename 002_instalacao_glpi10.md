@@ -197,10 +197,10 @@ host da máquina, nós faríamos no gerenciador de dns(cloudlare, registro br et
 
 ### Instalar composer:
 ```bash
-sudo apt update
+apt update
 ```
 ```bash
-sudo apt install curl php-cli php-mbstring git unzip
+apt install curl php-cli php-mbstring git unzip
 ```
 ```bash
 cd ~
@@ -219,7 +219,7 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Insta
 else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 ```
 ```bash
-sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 ```
 Por fim :
 ```bash
