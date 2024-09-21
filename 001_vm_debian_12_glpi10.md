@@ -4,11 +4,11 @@
 ```bash
 apt update && apt upgrade -y && apt full-upgrade -y && apt autoremove -y && apt clean
 ```
-### Pacotes para manipular arquivos:
+### Pacotes para manipular arquivos(até aqui é padrão):
 ```bash
    apt install -y xz-utils bzip2 unzip curl
 ```
-## Instalar dependências no sistema
+## Instalar dependências no sistema(aqui começa a intalação específica do GLPi)
 ```bash
 apt install -y apache2 libapache2-mod-php php-soap php-cas php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,bz2}
 ```
